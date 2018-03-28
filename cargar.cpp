@@ -19,7 +19,7 @@ int main( int argc, char ** argv ){
 	// almacena el nombre del archivo al cual extrar los bytes y la cantidad de veces que se duplicará la matriz
 	if(argc>2){ // si hay más de 2 parámetros
 		nombre = argv[1]; // tome el segundo parámetro
-		duplicar = argv[2]; // almacena la cantidad de veces que se va a duplicar la matriz
+		duplicar = stoi(argv[2]); // almacena la cantidad de veces que se va a duplicar la matriz; realiza un parsing
 	}
 	else{
 		nombre = (char *) "datos.txt"; // asigna el nombre de un archivo por defecto; realiza un parsing
