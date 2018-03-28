@@ -5,7 +5,7 @@
 
 using namespace std; // permite utilizar todos los nombre de cualquier librería estándar de C++
 
-int main( int argc, char ** argv, int cantidad ){
+int main( int argc, char ** argv ){
 	cout << "Cantidad de parametros: " << argc << endl; // indica la cantidad de parámetros
 	for(int i=0; i<argc; ++i){
 		cout << "argumento " << i << ": " << argv[i] << endl; // imprime los parámetros ingresados
@@ -15,12 +15,11 @@ int main( int argc, char ** argv, int cantidad ){
 	int filas; // almacenará las filas de la matriz
 	int columnas; // almacenará las columnas de la matriz
 	char * nombre; // almacenará el nombre del archivo (o ruta) al que extraerá los bytes
-	int duplicar; // almacena la cantidad de veces que se va a duplicar la matriz
 	
 	// almacena el nombre del archivo al cual extrar los bytes y la cantidad de veces que se duplicará la matriz
 	if(argc>2){ // si hay más de 2 parámetros
 		nombre = argv[1]; // tome el segundo parámetro
-		duplicar = cantidad; // tome el tercer parámetro
+		duplicar = argv[2]; // almacena la cantidad de veces que se va a duplicar la matriz
 	}
 	else{
 		nombre = (char *) "datos.txt"; // asigna el nombre de un archivo por defecto; realiza un parsing
