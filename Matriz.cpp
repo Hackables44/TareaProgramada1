@@ -9,7 +9,7 @@ Matriz::Matriz(int filas, int columnas){ // constructor
 	// almacenamos el tamaño de las dimensiones
 	this->filas=filas; // inicializo la variable de instancia filas
 	this->columnas=columnas; // inicializo la variable de instancia columnas
-	
+
 	// creamos (asignamos e inicializamos) la matriz
 	m = new int * [filas]; // asigna un vector de punteros con la extensión de filas; crea una dimensión
 	for(int f=0; f<filas; ++f){ // recorre el vector de punteros
@@ -18,7 +18,7 @@ Matriz::Matriz(int filas, int columnas){ // constructor
 			m[f][c] = 0; // inicializo las celdas en 0
 		} // fin de la estructura iterativa for anidada
 	} // fin de la estructura iterativa for
-	
+
 } // fin del constructor Matriz
 
 Matriz::~Matriz(){ // destruye el objeto Matriz
@@ -77,3 +77,81 @@ void Matriz::verMatriz(){ // imprime en pantalla el arreglo de 2 dimensiones
 	} // fin de la estructura iterativa for
 	cout << endl; // deja una línea en blanco después de mostrar la matriz
 } // fin de la función verMatriz
+
+//En proceso
+int Matriz::calcularFrecuencia(){
+	int f;  //???
+	int c;  //??
+	int i; //???
+  int frecuencia = Matriz::recursivo(f,c,i);//donde i es el numero al que se le quiere sacar la frecuencia
+  return frecuencia;
+}
+
+//
+int Matriz::recursivo(int f, int c,int i){
+  //int frecuencia = 0;    ahi veo si la inicializo aqui
+  int controlador = 0;// no sé si esto será necesario pero no lo pienso de otra forma
+  if(Matriz::posValida(f,c) && m[f][c] == i ){//si es posicion valida y el numero que es analizado es igual al del lugar de la matriz auntar 1 al contador de frecuencia
+    ++frecuencia;
+  }
+switch(controlador){//para entrar a los diferentes llamados recursvos
+  case 0 : controlador = 1;
+  Matriz::recursivo(f-1,c,i);
+  break;
+  case 1 : controlador = 2;
+  Matriz::recursivo(f-1,c+1,i);
+  break;
+  case 2 : controlador = 3;
+  Matriz::recursivo(f,c+1,i);
+  break;
+  case 3 : controlador = 4;
+  Matriz::recursivo(f+1,c+1,i);
+  break;
+  case 4 : controlador = 5;
+  Matriz::recursivo(f+1,c,i);
+  break;
+  case 5 : controlador = 6;
+  Matriz::recursivo(f+1,c-1,i);
+  break;
+  case 6 : controlador = 7;
+  Matriz::recursivo(f,c-1,i);
+  break;
+  case 7 : //controlador = 0; ???
+  Matriz::recursivo(fila-1,c-1,i);
+  break;
+};
+
+void Matriz::sacarTranspuesta(){
+	transpuesta = new int * [columnas];
+	for(int f=0; f<columnas; ++f){
+		transpuesta[f] = new int [filas];
+		for(int c=0; c<filas; ++c){
+			transpuesta[f][c] = 0;
+		}
+	}
+
+	for(int f = 0;f < fila;++f){
+		for(int c = 0;c<columna;++c){
+		transpuesta[c][f] = m[f][c];
+		}
+	}
+}
+
+void Matriz::productoDeMatrices(){
+producto = new int * [filas]
+	for(int f = 0;f < fila;++f){
+		producto[f] = new int [filas]
+    for(int c = 0;c<fila;++c){
+      producto[f][c] = 0;
+
+    }
+  }
+
+for(int i = 0;i < fila ;++i){
+  for(int f = 0;f < fila;++f){
+    for(int c = 0;c<columna;++c){
+    producto[i][f] += m[i][c] * transpuesta[c][f];
+    }
+  }
+}
+}
