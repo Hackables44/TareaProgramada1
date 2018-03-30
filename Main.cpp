@@ -46,5 +46,17 @@ int main(int argc, char ** argv){
 	cout << endl; // deja un espacio en blanco
 	original.verMatriz(); // imprime en pantalla la matriz original
 	// original.~Matriz();
+	
+	// duplica la matriz
+	int filasD = filas*2+1;
+	int columnasD = columnas*2+1;
+	Matriz duplicada(filasD, columnasD);
+	for(int f=0; f<filas; ++f){
+		for(int c=0; c<columnas; ++c){
+			duplicada.setCelda(f*2+1, c*2+1, original.getCelda(f, c));
+		}
+	}
+	duplicada.verMatriz();
+	
 	return 0; // es una buena práctica de programación; indica que el programa ha terminado correctamente
 } // fin de la función principal
