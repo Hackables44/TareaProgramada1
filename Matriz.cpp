@@ -190,4 +190,14 @@ void Matriz::crearMatrizFrecuencia(){
   }
 	int frecuencia = new int *[count];
 	int frecuencia[count] = new int [count]; 
-};
+}
+
+	void Matriz::crearMatrizAsociativa(){
+		asociativa = new int *[fila];
+		for(int f = 0;f < fila;++f){
+			asociativa[f] = new int [fila];
+	    for(int c = 0;c<fila;++c){
+	    asociativa[f][c] = (double) 2 * producto[f][c] / (producto[f][f] + producto[c][c]);
+	    }
+	  }
+	};
