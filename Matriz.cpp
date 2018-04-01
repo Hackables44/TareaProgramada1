@@ -1,7 +1,7 @@
 // Matriz.cpp	Contiene la implementación de la clase Matriz
 #include "Matriz.h" // importa la cabecera que contiene la definición de la clase
 #include <iostream> // permite realizar operaciones de entrada y salida
-
+#include <stdlib.h> // permite el uso de new y delete
 using namespace std;
 
 // Utilizamos el operador de resolución de ámbito para indicar a donde pertenece la implementación de los métodos, en este caso a la clase Matriz
@@ -119,7 +119,8 @@ switch(controlador){//para entrar a los diferentes llamados recursvos
   case 7 : //controlador = 0; ???
   Matriz::recursivo(fila-1,c-1,i);
   break;
-};
+ }
+}
 
 void Matriz::sacarTranspuesta(){
 	transpuesta = new int * [columnas];
@@ -138,6 +139,7 @@ void Matriz::sacarTranspuesta(){
 }
 
 void Matriz::productoDeMatrices(){
+
 producto = new int * [filas]
 	for(int f = 0;f < fila;++f){
 		producto[f] = new int [filas]
@@ -155,3 +157,37 @@ for(int i = 0;i < fila ;++i){
   }
 }
 }
+
+void Matriz::crearMatrizFrecuencia(){
+
+	for(int i = 0; i< fila*columna + 1;++i){
+    for(int f = 0;f< fila;++f){
+      for(int c = 0; c<columna; ++c){
+        if(controlador == 1){
+          if(m[f][c] == 0){
+            ++count;
+            controlador = 0;
+          }
+        }
+        else{
+          if(m[f][c] != 0){
+            if(variable == 0){
+              variable = m[f][c];
+              ++count;
+            }
+            else{
+              if(variable == m[f][c]){
+                m[f][c] = 0;
+              }
+            }
+          }
+
+        }
+      }
+    }
+    controlador = 0;
+    variable = 0;
+  }
+	int frecuencia = new int *[count];
+	int frecuencia[count] = new int [count]; 
+};
