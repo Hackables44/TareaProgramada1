@@ -13,9 +13,10 @@ class Matriz{
 		int * * transpuesta; // matriz transpuesta de la de frecuencia
 		int * * producto; // resultado del producto entre la matriz de frecuencia y su transpuesta
 		int * * frecuencia; // matriz de frecuencia
+	        double * * asociativa; //matriz de asociacion
 		int count = 0; //contador para crear la matriz de frecuencia
-		int variable = 0;
-		int controlador = 1;
+		int variable = 0; //variable necesaria para el metodo de las dimensiones de la matriz de frecuancia
+		int controlador = 1; //variable necesaria para el metodo de las dimensiones de la matriz de frecuancia
 
 	public: // especificador de acceso público
 		Matriz(int, int); // constructor que recibe la cantidad de filas y columnas
@@ -31,6 +32,7 @@ class Matriz{
 		void sacarTranspuesta(); //sacar la matriz transpuesta
 		void productoDeMatrices(); //multiplicacion de matriz normal por la transpuesta
 		void crearMatrizFrecuencia(); // crea la matriz de frecuencias
+	        void crearMatrizAsociativa(); // crea la matriz de asociacion
 }; // fin de la definición de la clase
 
 #endif // fin del prepocesador condicional
