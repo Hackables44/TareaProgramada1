@@ -1,7 +1,8 @@
 // Matriz.cpp	Contiene la implementación de la clase Matriz
 #include "Matriz.h" // importa la cabecera que contiene la definición de la clase
+#include "Vector.h"
 #include <iostream> // permite realizar operaciones de entrada y salida
-#include <stdlib.h> // permite el uso de new y delete
+
 using namespace std;
 
 // Utilizamos el operador de resolución de ámbito para indicar a donde pertenece la implementación de los métodos, en este caso a la clase Matriz
@@ -78,126 +79,33 @@ void Matriz::verMatriz(){ // imprime en pantalla el arreglo de 2 dimensiones
 	cout << endl; // deja una línea en blanco después de mostrar la matriz
 } // fin de la función verMatriz
 
-//En proceso
-int Matriz::calcularFrecuencia(){
-	int f;  //???
-	int c;  //??
-	int i; //???
-  int frecuencia = Matriz::recursivo(f,c,i);//donde i es el numero al que se le quiere sacar la frecuencia
-  return frecuencia;
-}
-
-//
-int Matriz::recursivo(int f, int c,int i){
-  //int frecuencia = 0;    ahi veo si la inicializo aqui
-  int controlador = 0;// no sé si esto será necesario pero no lo pienso de otra forma
-  if(Matriz::posValida(f,c) && m[f][c] == i ){//si es posicion valida y el numero que es analizado es igual al del lugar de la matriz auntar 1 al contador de frecuencia
-    ++frecuencia;
-  }
-switch(controlador){//para entrar a los diferentes llamados recursvos
-  case 0 : controlador = 1;
-  Matriz::recursivo(f-1,c,i);
-  break;
-  case 1 : controlador = 2;
-  Matriz::recursivo(f-1,c+1,i);
-  break;
-  case 2 : controlador = 3;
-  Matriz::recursivo(f,c+1,i);
-  break;
-  case 3 : controlador = 4;
-  Matriz::recursivo(f+1,c+1,i);
-  break;
-  case 4 : controlador = 5;
-  Matriz::recursivo(f+1,c,i);
-  break;
-  case 5 : controlador = 6;
-  Matriz::recursivo(f+1,c-1,i);
-  break;
-  case 6 : controlador = 7;
-  Matriz::recursivo(f,c-1,i);
-  break;
-  case 7 : //controlador = 0; ???
-  Matriz::recursivo(fila-1,c-1,i);
-  break;
- }
-}
-
-void Matriz::sacarTranspuesta(){
-	transpuesta = new int * [columnas];
-	for(int f=0; f<columnas; ++f){
-		transpuesta[f] = new int [filas];
-		for(int c=0; c<filas; ++c){
-			transpuesta[f][c] = 0;
+void Matriz::crearVectorNumDiferentes(){ // Método que crea el vector que almacena cada número diferente de la mtariz de Imagen
+	int contador = 0; // inicializa la variale contador para llevar la cuenta de números diferentes de la Matriz
+	Vector vector(filas*columnas); // creamos una instancia de objeto Vector
+	//vector.ver();
+	int valor = 0;  // se inicializa la variable valor
+	int num =0; //se inicializa la variable num
+	bool yaExiste = false;
+	for (int f = 0; f < filas; f++) {
+		for (int c = 0; c < columnas; c++) {
+			valor = m[f][c]; //se va almancenado en la variable valor, el numero de cada celda de la matriz
+			if(valor != 0){ //si el valor es diferente a cero
+			yaExiste =	vector.comparar(valor); //se verifica si el vector ya existe en el vector
+			if (yaExiste == false) {
+				vector.agregar(contador, valor); //si no existe se guarada en el vector
+				contador++;
+			}
+			else{
+				yaExiste=false;
+			}
+			}
 		}
 	}
-
-	for(int f = 0;f < fila;++f){
-		for(int c = 0;c<columna;++c){
-		transpuesta[c][f] = m[f][c];
-		}
+	//cout << contador << endl;
+	Vector vector2(contador); //se crear otra instancia de objecto vector para reducir la memoria
+	for(int i=0; i<contador; ++i){  //se pasa cada elemento del 1º vector al vector2.
+		num = vector.get(i);
+		vector2.agregar(i, num);
 	}
+		vector2.ver(); //imprime el vector
 }
-
-void Matriz::productoDeMatrices(){
-
-producto = new int * [filas]
-	for(int f = 0;f < fila;++f){
-		producto[f] = new int [filas]
-    for(int c = 0;c<fila;++c){
-      producto[f][c] = 0;
-
-    }
-  }
-
-for(int i = 0;i < fila ;++i){
-  for(int f = 0;f < fila;++f){
-    for(int c = 0;c<columna;++c){
-    producto[i][f] += m[i][c] * transpuesta[c][f];
-    }
-  }
-}
-}
-
-void Matriz::crearMatrizFrecuencia(){
-
-	for(int i = 0; i< fila*columna + 1;++i){
-    for(int f = 0;f< fila;++f){
-      for(int c = 0; c<columna; ++c){
-        if(controlador == 1){
-          if(m[f][c] == 0){
-            ++count;
-            controlador = 0;
-          }
-        }
-        else{
-          if(m[f][c] != 0){
-            if(variable == 0){
-              variable = m[f][c];
-              ++count;
-            }
-            else{
-              if(variable == m[f][c]){
-                m[f][c] = 0;
-              }
-            }
-          }
-
-        }
-      }
-    }
-    controlador = 0;
-    variable = 0;
-  }
-	int frecuencia = new int *[count];
-	int frecuencia[count] = new int [count]; 
-}
-
-	void Matriz::crearMatrizAsociativa(){
-		asociativa = new int *[fila];
-		for(int f = 0;f < fila;++f){
-			asociativa[f] = new int [fila];
-	    for(int c = 0;c<fila;++c){
-	    asociativa[f][c] = (double) 2 * producto[f][c] / (producto[f][f] + producto[c][c]);
-	    }
-	  }
-	};
