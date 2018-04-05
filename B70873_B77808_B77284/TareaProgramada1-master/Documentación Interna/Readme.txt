@@ -1,0 +1,1 @@
+En la carpeta del html, abrir el archivo index
