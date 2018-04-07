@@ -21,7 +21,7 @@ class Matriz{
 	~Matriz(); // destructor del objeto Matriz
 	bool posValida(int , int); // verifica que la celda indicada tenga una posición válida
 	void setCelda(int, int, double); // set que recibe la posición de la celda y el número a asignar
-	int getCelda(int, int); // get recibe como parámetros la posición de la celda
+	double getCelda(int, int); // get recibe como parámetros la posición de la celda
 	int getFilas(); // devuelve la cantidad de filas de la matriz
 	int getColumnas(); // devuelve la cantidad de columnas de la matriz
 	void verMatriz(); // imprime en pantalla el contenido del arreglo;

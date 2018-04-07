@@ -1,6 +1,7 @@
-// Ampliar.h		Cabecera de la clase Ampliar
 
 #include "Matriz.h"
+#include "Rellenar.h"
+#include "Normalizar.h"
 
 #ifndef AMPLIAR_H
 #define AMPLIAR_H
@@ -10,11 +11,14 @@ public:
     Ampliar();
     Ampliar(const Ampliar& orig);
     ~Ampliar();
-
+    
     Matriz& amplificarMatriz(Matriz&, int fila, int columna);
-
+    
+    Matriz& agrandarMatriz(Matriz&, int);
+    
 private:
 
 };
 
 #endif /* AMPLIAR_H */
+

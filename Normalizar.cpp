@@ -1,4 +1,4 @@
-// Normalizar.cpp
+
 #include "Normalizar.h"
 
 Normalizar::Normalizar() {
@@ -34,8 +34,8 @@ Matriz& Normalizar::crearMatrizFrecuencia(Matriz& m, Vector& v, int a){
 int Normalizar::recorrerMatriz(Matriz& m, int n1, int n2){
     int fila = m.getFilas();
     int columna = m.getColumnas();
-    int sF[8]={-1, -1, 0, 1, 1, 1, 0, -1};
-    int sC[8]={0, 1, 1, 1, 0, -1, -1, -1};
+    int sF[8]{-1, -1, 0, 1, 1, 1, 0, -1};
+    int sC[8]{0, 1, 1, 1, 0, -1, -1, -1};
 
     Matriz* mascara = new Matriz(fila, columna);
 
@@ -90,7 +90,7 @@ Matriz& Normalizar::multiplicarMatriz(Matriz& m, int n) {
 Matriz& Normalizar::crearMatrizNormalizada(Matriz& m, int n){
     Matriz* normalizada = new Matriz(n, n);
 
-
+    
     double dato;
     for (int f = 0; f < n; ++f) {
         for (int c = 0; c < n; ++c) {

@@ -19,7 +19,7 @@ Matriz::Matriz(int filas, int columnas){ // constructor
 	this->columnas=columnas; // inicializo la variable de instancia columnas
 
 	// creamos (asignamos e inicializamos) la matriz
-	m = new double * [filas]; // asigna un vector de punteros con la extensión de filas; crea una dimensión
+	m = new double* [filas]; // asigna un vector de punteros con la extensión de filas; crea una dimensión
 	for(int f=0; f<filas; ++f){ // recorre el vector de punteros
 		m[f] = new double [columnas]; // asigna la dirección de la primera celda de un vector de números; va creando la segunda dimensión
 		for(int c=0; c<columnas; ++c){ // recorre las celdas
@@ -56,8 +56,8 @@ void Matriz::setCelda(int fila, int columna, double numero){
 	} // fin de la condicional
 } // fin del método set
 
-int Matriz::getCelda(int fila, int columna){
-	int numero = 0; // declaro e inicializo la variable numero
+double Matriz::getCelda(int fila, int columna){
+	double numero = 0; // declaro e inicializo la variable numero
 	if(posValida(fila, columna)){ // verifica que la posición ingresada sea válida
 		numero = m[fila][columna]; // almaceno el valor de la celda
 	}
